@@ -1,4 +1,11 @@
-mystery_word = 'bread'
+import urllib.request, random
+
+word_site = "https://www-cs-faculty.stanford.edu/~knuth/sgb-words.txt"
+
+response = urllib.request.urlopen(word_site)
+long_txt = response.read().decode()
+words = long_txt.splitlines()
+mystery_word = words[random.randint(0, 5756)]
 mystery_word = mystery_word.lower()
 attempt = 0
 status = ''
